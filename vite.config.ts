@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
@@ -7,17 +7,18 @@ export default defineConfig({
     host: true,
     port: 5000,
     strictPort: true,
-    hmr: false
+    hmr: false,
+    allowedHosts: "all",
   },
   define: {
-    global: 'globalThis'
+    global: "globalThis",
   },
   resolve: {
     alias: {
-      buffer: 'buffer'
-    }
+      buffer: "buffer",
+    },
   },
   optimizeDeps: {
-    include: ['plotly.js-dist', 'mathjs', 'buffer']
-  }
-})
+    include: ["plotly.js-dist", "mathjs", "buffer"],
+  },
+});

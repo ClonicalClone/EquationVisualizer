@@ -1,0 +1,283 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating Card Base Styles */
+.floating-card {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.floating-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.floating-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.floating-card h4 {
+  margin: 15px 0 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cccccc;
+}
+
+/* Input Styles */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 12px;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+  background: rgba(40, 40, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Range Inputs */
+.range-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.range-inputs input {
+  width: 100%;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #ffffff;
+}
+
+.checkbox-item label {
+  font-size: 13px;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Error Messages */
+.error-message {
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Scrollable Content */
+.scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Analysis Panel Specific */
+.analysis-content {
+  line-height: 1.6;
+}
+
+.analysis-section {
+  margin-bottom: 20px;
+}
+
+.analysis-section h4 {
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.analysis-section p {
+  color: #cccccc;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.latex-display {
+  background: rgba(40, 40, 40, 0.5);
+  padding: 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 8px 0;
+  overflow-x: auto;
+}
+
+/* Examples Panel */
+.examples-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.example-item {
+  background: rgba(40, 40, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.example-item:hover {
+  background: rgba(60, 60, 60, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.example-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.example-equation {
+  font-family: 'Courier New', monospace;
+  color: #cccccc;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-card {
+    padding: 15px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .range-inputs {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+  }
+}

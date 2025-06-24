@@ -1,4 +1,4 @@
-import { derivative, parse, MathNode } from 'mathjs';
+import { derivative, parse } from 'mathjs';
 import { ParsedExpression, evaluateExpression } from './mathParser';
 
 export interface DerivativeData {
@@ -190,7 +190,7 @@ function classifyCriticalPoint(
   }
 }
 
-function calculateLimits(parsedExpr: ParsedExpression): LimitData {
+function calculateLimits(_parsedExpr: ParsedExpression): LimitData {
   // Simplified limit analysis - in a full implementation,
   // you'd use more sophisticated limit calculation
   return {

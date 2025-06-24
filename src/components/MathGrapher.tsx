@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Plotly from 'plotly.js-dist';
+import { useEffect, useRef, useState } from 'react';
+import * as Plotly from 'plotly.js-dist';
 import { GraphConfig, AnalysisData } from '../App';
 import { ParsedExpression, createMeshData } from '../utils/mathParser';
 
@@ -7,15 +7,13 @@ interface MathGrapherProps {
   config: GraphConfig;
   parsedExpression: ParsedExpression | null;
   analysisData: AnalysisData | null;
-  error: string | null;
 }
 
-export const MathGrapher: React.FC<MathGrapherProps> = ({
+export const MathGrapher = ({
   config,
   parsedExpression,
-  analysisData,
-  error
-}) => {
+  analysisData
+}: any) => {
   const plotRef = useRef<HTMLDivElement>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -119,7 +117,7 @@ export const MathGrapher: React.FC<MathGrapherProps> = ({
               unknown: '#ffffff'
             };
 
-            criticalPoints.forEach((point, index) => {
+            criticalPoints.forEach((point) => {
               traces.push({
                 type: 'scatter3d',
                 x: [point.x],
@@ -174,7 +172,7 @@ export const MathGrapher: React.FC<MathGrapherProps> = ({
               eye: { x: 1.5, y: 1.5, z: 1.5 }
             }
           },
-          showlegend: config.showCriticalPoints && analysisData?.criticalPoints?.length > 0,
+          showlegend: config.showCriticalPoints && (analysisData?.criticalPoints?.length || 0) > 0,
           legend: {
             font: { color: '#ffffff' },
             bgcolor: 'rgba(0, 0, 0, 0.8)',
@@ -200,19 +198,21 @@ export const MathGrapher: React.FC<MathGrapherProps> = ({
         }
 
         // Make the plot extremely zoomable
-        plotRef.current.on('plotly_relayout', (eventData: any) => {
-          // Enable unlimited zooming
-          if (eventData['scene.camera']) {
-            // Allow very close zoom
-            const camera = eventData['scene.camera'];
-            if (camera.eye) {
-              // Remove zoom limits
-              delete camera.eye.x_range;
-              delete camera.eye.y_range;
-              delete camera.eye.z_range;
+        if (plotRef.current) {
+          (plotRef.current as any).on('plotly_relayout', (eventData: any) => {
+            // Enable unlimited zooming
+            if (eventData['scene.camera']) {
+              // Allow very close zoom
+              const camera = eventData['scene.camera'];
+              if (camera.eye) {
+                // Remove zoom limits
+                delete camera.eye.x_range;
+                delete camera.eye.y_range;
+                delete camera.eye.z_range;
+              }
             }
-          }
-        });
+          });
+        }
 
       } catch (error) {
         console.error('Plot creation error:', error);

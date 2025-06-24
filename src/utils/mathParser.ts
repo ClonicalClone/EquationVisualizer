@@ -1,4 +1,4 @@
-import { evaluate, parse, MathNode } from 'mathjs';
+import { parse, MathNode } from 'mathjs';
 
 export interface ParsedExpression {
   node: MathNode;
@@ -72,7 +72,7 @@ export function parseMathExpression(equation: string): ParsedExpression {
 function extractVariables(node: MathNode): string[] {
   const variables = new Set<string>();
   
-  node.traverse((node, path, parent) => {
+  node.traverse((node) => {
     if (node.type === 'SymbolNode') {
       const name = (node as any).name;
       // Only include single-letter variables and common math variables
@@ -110,10 +110,10 @@ export function createMeshData(
   yMin: number,
   yMax: number,
   resolution: number
-): { x: number[][], y: number[][], z: number[][] } {
+): { x: number[][], y: number[][], z: (number | null)[][] } {
   const x: number[][] = [];
   const y: number[][] = [];
-  const z: number[][] = [];
+  const z: (number | null)[][] = [];
   
   const xStep = (xMax - xMin) / (resolution - 1);
   const yStep = (yMax - yMin) / (resolution - 1);

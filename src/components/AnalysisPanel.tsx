@@ -1,4 +1,4 @@
-import React from 'react';
+import { } from 'react';
 import { AnalysisData } from '../App';
 
 interface AnalysisPanelProps {
@@ -7,11 +7,11 @@ interface AnalysisPanelProps {
   onClose: () => void;
 }
 
-export const AnalysisPanel: React.FC<AnalysisPanelProps> = ({
+export const AnalysisPanel = ({
   analysisData,
   equation,
   onClose
-}) => {
+}: any) => {
   return (
     <div 
       className="floating-card" 

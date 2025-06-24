@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GraphConfig } from '../App';
 
 interface FloatingControlsProps {
@@ -10,14 +10,14 @@ interface FloatingControlsProps {
   error: string | null;
 }
 
-export const FloatingControls: React.FC<FloatingControlsProps> = ({
+export const FloatingControls = ({
   config,
   onConfigChange,
   onEquationChange,
   onToggleAnalysis,
   onToggleExamples,
   error
-}) => {
+}: any) => {
   const [isMinimized, setIsMinimized] = useState(false);
 
   const handleEquationSubmit = (e: React.FormEvent) => {

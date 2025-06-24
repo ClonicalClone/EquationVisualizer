@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { MathGrapher } from './components/MathGrapher';
 import { FloatingControls } from './components/FloatingControls';
 import { AnalysisPanel } from './components/AnalysisPanel';
@@ -22,7 +22,7 @@ export interface GraphConfig {
 
 export interface AnalysisData {
   derivatives: any;
-  criticalPoints: Array<[number, number, number]>;
+  criticalPoints: Array<{x: number, y: number, z: number, type: string}>;
   limits: any;
   properties: any;
 }

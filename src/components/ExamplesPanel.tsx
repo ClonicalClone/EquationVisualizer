@@ -1,4 +1,4 @@
-import React from 'react';
+import { } from 'react';
 
 interface ExamplesPanelProps {
   onSelectExample: (equation: string) => void;
@@ -83,10 +83,10 @@ const EXAMPLE_EQUATIONS = [
   }
 ];
 
-export const ExamplesPanel: React.FC<ExamplesPanelProps> = ({
+export const ExamplesPanel = ({
   onSelectExample,
   onClose
-}) => {
+}: any) => {
   return (
     <div 
       className="floating-card" 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Plotly from 'plotly.js/dist/plotly.min.js';
+import Plotly from 'plotly.js-dist';
 import { GraphConfig, AnalysisData } from '../App';
 import { ParsedExpression, createMeshData } from '../utils/mathParser';
 
